@@ -9,39 +9,4 @@ export default function Home() {
       item: "read 50 pages of a book (dhivas recommends the steve jobs biography)",
     },
   ]);
-  const [inputVal, setInputVal] = useState("");
-
-  return (
-    <>
-      <h1>To do list</h1>
-      <ul>
-        {todoList.map((listItem) => (
-          <li key={listItem.id}>
-            {listItem.item}
-            <button
-              onClick={() =>
-                setTodoList((prevTodoList) =>
-                  prevTodoList.filter((currItem) => currItem.id !== listItem.id)
-                )
-              }
-            >
-              Remove item
-            </button>
-          </li>
-        ))}
-      </ul>
-      <input value={inputVal} onChange={(e) => setInputVal(e.target.value)} />
-      <button
-        onClick={() => {
-          setTodoList((prevTodoList) => [
-            ...prevTodoList,
-            { id: nanoid(), item: inputVal },
-          ]);
-          setInputVal("");
-        }}
-      >
-        Add item
-      </button>
-    </>
-  );
 }
